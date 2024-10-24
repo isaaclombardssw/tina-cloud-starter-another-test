@@ -3,8 +3,8 @@ import client from "../../../tina/__generated__/client";
 import Layout from "../../../components/layout/layout";
 import PostClientPage from "./client-page";
 
-// export const dynamic = "force-static";
-// export const dynamicParams = true;
+export const dynamic = "force-static";
+export const dynamicParams = true;
 
 export default async function PostPage({
   params,
@@ -23,9 +23,5 @@ export default async function PostPage({
 }
 
 export async function generateStaticParams() {
-  const posts = await client.queries.postConnection();
-  const paths = posts.data?.postConnection.edges.map((edge) => ({
-    filename: edge.node._sys.breadcrumbs,
-  }));
-  return paths || [];
+  return [];
 }
