@@ -3,8 +3,8 @@ import client from "../../tina/__generated__/client";
 import ClientPage from "./client-page";
 import Layout from "../../components/layout/layout";
 
-// ISR: Specify revalidation period (e.g., 1 hour)
-export const revalidate = 3600; // Revalidate every 3600 seconds (1 hour)
+export const dynamic = "force-static";
+export const dynamicParams = true;
 
 export default async function Page({
   params,
@@ -24,10 +24,5 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-  const pages = await client.queries.pageConnection();
-  const paths = pages.data?.pageConnection.edges.map((edge) => ({
-    filename: edge.node._sys.breadcrumbs,
-  }));
-
-  return paths || [];
+  return [];
 }
