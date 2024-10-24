@@ -24,5 +24,10 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-  return [];
+  const pages = await client.queries.pageConnection();
+  const paths = pages.data?.pageConnection.edges.map((edge) => ({
+    filename: edge.node._sys.breadcrumbs,
+  }));
+
+  return paths || [];
 }
