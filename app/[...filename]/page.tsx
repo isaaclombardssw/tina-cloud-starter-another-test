@@ -3,8 +3,8 @@ import client from "../../tina/__generated__/client";
 import ClientPage from "./client-page";
 import Layout from "../../components/layout/layout";
 
-export const dynamic = "force-static";
-export const dynamicParams = true;
+// export const dynamic = "force-static";
+// export const dynamicParams = true;
 
 export default async function Page({
   params,
