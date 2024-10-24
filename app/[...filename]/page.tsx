@@ -3,8 +3,8 @@ import client from "../../tina/__generated__/client";
 import ClientPage from "./client-page";
 import Layout from "../../components/layout/layout";
 
-export const dynamic = "force-static";
-export const dynamicParams = true;
+// ISR: Specify revalidation period (e.g., 1 hour)
+export const revalidate = 3600; // Revalidate every 3600 seconds (1 hour)
 
 export default async function Page({
   params,
